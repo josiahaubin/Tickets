@@ -54,7 +54,7 @@ namespace Ticket.Controllers
       for (int i = 0; i < _ts.UserTickets.Count; i++)
       {
         string TicketTitle = _ts.UserTickets[i].Title;
-        Console.WriteLine($"{i + 1}.      {TicketTitle}");
+        Console.WriteLine($"{i + 1}.          {TicketTitle}");
       }
 
       Console.WriteLine("What would you like to do? (view/new/quit)");
@@ -69,27 +69,36 @@ namespace Ticket.Controllers
           break;
         case "n":
         case "new":
-          Console.WriteLine("Title:");
-          string title = Console.ReadLine();
-          Console.WriteLine("Description:");
-          string desc = Console.ReadLine();
-          Console.Clear();
-          _ts.CreateTicket(title, desc);
+          NewTicket();
           break;
         case "v":
         case "view":
-          Console.WriteLine("What ticket number do you want to view?");
-          string num = Console.ReadLine();
-          if (int.TryParse(num, out int index))
-          {
-            _ts.ViewTicket(index - 1);
-            Console.Clear();
-            Update(index - 1);
-          }
+          ViewTicketDetails();
           break;
 
       }
 
+    }
+    private void NewTicket()
+    {
+      Console.WriteLine("Title:");
+      string title = Console.ReadLine();
+      Console.WriteLine("Description:");
+      string desc = Console.ReadLine();
+      Console.Clear();
+      _ts.CreateTicket(title, desc);
+    }
+
+    private void ViewTicketDetails()
+    {
+      Console.WriteLine("What ticket number do you want to view?");
+      string num = Console.ReadLine();
+      if (int.TryParse(num, out int index))
+      {
+        _ts.ViewTicket(index - 1);
+        Console.Clear();
+        Update(index - 1);
+      }
     }
     public TicketController()
     {
