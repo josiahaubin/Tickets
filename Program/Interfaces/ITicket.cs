@@ -6,6 +6,6 @@ namespace Ticket.Interfaces
     string Description { get; set; }
 
     /// <summary>Returns Ticket Information</summary>
-    void GetTemplate();
+    string GetTemplate();
   }
 }

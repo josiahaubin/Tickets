@@ -7,9 +7,14 @@ namespace Ticket.Models
     public string Title { get; set; }
     public string Description { get; set; }
 
-    public void GetTemplate()
+    public string GetTemplate()
     {
+      string template = $@"
+Title: {Title}
+Description: {Description}
+      ";
 
+      return template;
     }
 
     public Tickets(string title, string description)

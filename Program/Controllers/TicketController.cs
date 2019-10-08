@@ -11,14 +11,19 @@ namespace Ticket.Controllers
     {
       while (true)
       {
-        Update();
         GetUserInput();
       }
     }
 
     private void Update()
     {
-
+      foreach (string message in _ts.Messages)
+      {
+        Console.WriteLine(message);
+      }
+      Console.ReadKey();
+      _ts.Messages.Clear();
+      Console.Clear();
     }
 
     private void GetUserInput()
@@ -60,6 +65,18 @@ namespace Ticket.Controllers
           Console.Clear();
           _ts.CreateTicket(title, desc);
           break;
+        case "v":
+        case "view":
+          Console.WriteLine("What ticket number do you want to view?");
+          string num = Console.ReadLine();
+          if (int.TryParse(num, out int index))
+          {
+            _ts.ViewTicket(index - 1);
+            Console.Clear();
+            Update();
+          }
+          break;
+
       }
 
     }

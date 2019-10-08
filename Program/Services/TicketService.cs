@@ -14,6 +14,11 @@ namespace Ticket.Services
       Tickets ticket = new Tickets(title, desc);
       UserTickets.Add(ticket);
     }
+    public void ViewTicket(int index)
+    {
+      string info = UserTickets[index].GetTemplate();
+      Messages.Add(info);
+    }
     public TicketService()
     {
       Messages = new List<string>();
