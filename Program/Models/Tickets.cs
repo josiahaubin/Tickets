@@ -12,6 +12,7 @@ namespace Ticket.Models
       string template = $@"
 Title: {Title}
 Description: {Description}
+
       ";
 
       return template;

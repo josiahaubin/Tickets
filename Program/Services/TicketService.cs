@@ -19,6 +19,11 @@ namespace Ticket.Services
       string info = UserTickets[index].GetTemplate();
       Messages.Add(info);
     }
+
+    public void ResolveTicket(int index)
+    {
+      UserTickets.RemoveAt(index);
+    }
     public TicketService()
     {
       Messages = new List<string>();
