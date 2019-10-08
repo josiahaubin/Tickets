@@ -15,28 +15,6 @@ namespace Ticket.Controllers
       }
     }
 
-    private void Update(int index)
-    {
-      foreach (string message in _ts.Messages)
-      {
-        Console.WriteLine(message);
-      }
-      CheckClose(index);
-      _ts.Messages.Clear();
-      Console.Clear();
-    }
-    private void CheckClose(int index)
-    {
-      Console.WriteLine("Type close to remove resovle ticket or any key to continue");
-      string input = Console.ReadLine().ToLower();
-
-      switch (input)
-      {
-        case "close":
-          _ts.ResolveTicket(index);
-          break;
-      }
-    }
     private void GetUserInput()
     {
       string welcome = @"
@@ -98,6 +76,29 @@ namespace Ticket.Controllers
         _ts.ViewTicket(index - 1);
         Console.Clear();
         Update(index - 1);
+      }
+    }
+
+    private void Update(int index)
+    {
+      foreach (string message in _ts.Messages)
+      {
+        Console.WriteLine(message);
+      }
+      CheckClose(index);
+      _ts.Messages.Clear();
+      Console.Clear();
+    }
+    private void CheckClose(int index)
+    {
+      Console.WriteLine("Type close to remove resovle ticket or any key to continue");
+      string input = Console.ReadLine().ToLower();
+
+      switch (input)
+      {
+        case "close":
+          _ts.ResolveTicket(index);
+          break;
       }
     }
     public TicketController()
