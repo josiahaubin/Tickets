@@ -2,7 +2,7 @@ using Ticket.Interfaces;
 
 namespace Ticket.Models
 {
-  public class Ticket : ITicket
+  public class Tickets : ITicket
   {
     public string Title { get; set; }
     public string Description { get; set; }
@@ -12,7 +12,7 @@ namespace Ticket.Models
 
     }
 
-    public Ticket(string title, string description)
+    public Tickets(string title, string description)
     {
       Title = title;
       Description = description;

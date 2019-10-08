@@ -1,16 +1,23 @@
 using System.Collections.Generic;
+using Ticket.Models;
 
 namespace Ticket.Services
 {
   public class TicketService
   {
-    List<string> Messages { get; set; }
+    public List<string> Messages { get; set; }
 
+    public List<Tickets> UserTickets { get; set; }
 
-
+    public void CreateTicket(string title, string desc)
+    {
+      Tickets ticket = new Tickets(title, desc);
+      UserTickets.Add(ticket);
+    }
     public TicketService()
     {
       Messages = new List<string>();
+      UserTickets = new List<Tickets>();
     }
   }
 }
